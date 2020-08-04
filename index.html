@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/accepts/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -11,14 +12,43 @@
     </header>
 
     <main class="container">
-        <video class="movie"></video>
-          <source src="./assets/BigBuckBunny.mp4">
+        <video class="movie">
+          <source src="node_modules/accepts/BigBuckBunny.mp4">
         </video>    
 
         <button>Play/Pause</button>
       </main>
 
       <script>
+         const video = document.querySelector('video');
+         const button = document.querySelector('button');
+
+
+         class MediaPlayer{
+
+          constructor(config){
+
+            this.media = config.el;
+
+          }
+
+          playAndPause(){
+            if(this.media.paused){
+            this.media.play();
+            }else{
+              this.media.pause();
+            }
+
+         }
+        }
+         
+         
+         const player = new MediaPlayer({el:video});
+
+           button.onclick = () => player.playAndPause()
+
+       
+         
 
 
 
