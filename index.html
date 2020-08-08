@@ -29,6 +29,7 @@
           constructor(config){
 
             this.media = config.el;
+           this.plugins = config.plugin || [];
 
           }
 
@@ -43,7 +44,7 @@
         }
          
          
-         const player = new MediaPlayer({el:video});
+         const player = new MediaPlayer({el:video,plugins:[new AutoPlay()]});
 
            button.onclick = () => player.playAndPause()
 
