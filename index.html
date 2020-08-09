@@ -3,56 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="node_modules/accepts/style.css">
+    <link rel="stylesheet" href="assets/style.css">
     <title>Document</title>
 </head>
 <body>
-    <header>
-
+    <header class="main-header">
+      <div>
+       <h1>PlatziMediaPlayer.js</h1>
+       <h2>An extension mediaplayer</h2>
+      </div>
     </header>
 
     <main class="container">
         <video class="movie">
-          <source src="node_modules/accepts/BigBuckBunny.mp4">
+          <source src="assets/BigBuckBunny.mp4">
         </video>    
 
         <button>Play/Pause</button>
       </main>
 
-      <script>
-         const video = document.querySelector('video');
-         const button = document.querySelector('button');
-
-
-         class MediaPlayer{
-
-          constructor(config){
-
-            this.media = config.el;
-           this.plugins = config.plugin || [];
-
-          }
-
-          playAndPause(){
-            if(this.media.paused){
-            this.media.play();
-            }else{
-              this.media.pause();
-            }
-
-         }
-        }
-         
-         
-         const player = new MediaPlayer({el:video,plugins:[new AutoPlay()]});
-
-           button.onclick = () => player.playAndPause()
-
-       
-         
-
-
-
-      </script>
+      <script src="assets/index.js"></script>
 </body>
 </html>
