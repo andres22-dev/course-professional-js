@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+     /*
+     Los closures es la convinacion del scope con funciones     
+     */
+
+
+
+
+     //IFFE (Self-Executing Anonymous Function ) funcion que ese ejecuta sola
+      //clousure es la combinacion de una funcion con el scope e la funcion donde 
+      //fue definida esa funcion
+      /*Entonces lo que este definido dentro de ese clousure podra utilizarse dentro de
+       un scope local, entonces si tratamos de utilizar cosas de ese clousure fuera
+      de el no tendremos acceso a ellas.*/
+
+    (function(){
+     let color = 'green';
+
+     function printColor(){
+
+        console.log(color);
+     }
+        
+     printColor();
+    })();
+        
+      function makeColorPrinter(color){
+
+        let colorMessage = `The color is ${color}`
+
+         return function(){
+            console.log(colorMessage);
+         }
+
+
+      }
+
+    let greenColorPrinter = makeColorPrinter('green');
+    console.log(greenColorPrinter());
+
+
+
+
+
+/*
+         const counter = {
+          count: 3
+
+         }
+
+
+         console.log(counter.count);
+*/
+
+         function makeCounter(n){
+             
+            let count = n;
+
+
+            return{
+
+                increse: function(){
+                    count = count + 1;
+                },
+                decrese: function(){
+                    count = count - 1;
+
+                },
+                getCount: function(){
+                    return count;
+                },
+
+
+            };
+
+
+
+         }
+
+
+         let counter2 = makeCounter(7);
+
+         console.log('The count is:', counter2.getCount());
+         counter2.decrese();
+         counter2.decrese();
+         counter2.decrese();
+         console.log('The count is:', counter2.getCount());
+         console.log('The count is:', counter2.getCount());
+         counter2.increse();
+         console.log('The count is:', counter2.getCount());
+         console.log('The count is:', counter2.getCount());
+
+
+
+
+
+
+
+
+
+
+        </script>
+</body>
+</html>
